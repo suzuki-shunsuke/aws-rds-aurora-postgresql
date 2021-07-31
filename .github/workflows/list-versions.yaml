@@ -15,7 +15,7 @@ jobs:
         uses: suzuki-shunsuke/akoi-installer@v0.1.0
       - run: akoi install
 
-      - uses: suzuki-shunsuke/github-actions-aws-rds-available-engine-versions@main
+      - uses: suzuki-shunsuke/github-actions-aws-rds-available-engine-versions@v0.1.0
         with:
           engine: aurora-postgresql
           github_token: ${{ secrets.GITHUB_TOKEN }}
