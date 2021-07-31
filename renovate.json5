@@ -1,0 +1,13 @@
+{
+  "extends": ["config:base"],
+  "automerge": true,
+  "regexManagers": [
+    {
+      "fileMatch": [".akoi.yml"],
+      "matchStrings": [
+        "version: (?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"
+      ],
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
