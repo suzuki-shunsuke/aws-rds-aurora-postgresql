@@ -10,6 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - run: echo "PATH=$PWD/.akoi/bin:$PATH" >> $GITHUB_ENV
+      - name: Install akoi
+        uses: suzuki-shunsuke/akoi-installer@v0.1.0
+      - run: akoi install
+
       - uses: suzuki-shunsuke/github-actions-aws-rds-available-engine-versions@main
         with:
           engine: aurora-postgresql
