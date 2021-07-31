@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: suzuki-shunsuke/github-actions-aws-rds-available-engine-versions
+      - uses: suzuki-shunsuke/github-actions-aws-rds-available-engine-versions@main
         with:
           engine: aurora-postgresql
           github_token: ${{ secrets.GITHUB_TOKEN }}
