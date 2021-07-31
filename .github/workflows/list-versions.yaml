@@ -15,9 +15,11 @@ jobs:
         uses: suzuki-shunsuke/akoi-installer@v0.1.0
       - run: akoi install
 
-      - uses: suzuki-shunsuke/github-actions-aws-rds-available-engine-versions@v0.1.0
+      - run: aws rds describe-db-engine-versions --region us-east-1 --engine aurora-postgresql | jq -r ".DBEngineVersions[].EngineVersion" | uniq > versions.txt
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - uses: suzuki-shunsuke/github-actions-aws-rds-available-engine-versions@main
         with:
-          engine: aurora-postgresql
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
