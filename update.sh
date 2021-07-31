@@ -4,7 +4,7 @@ set -eux
 set -o pipefail
 
 git pull --tags
-git tags > tags.txt
+git tag > tags.txt
 if ! grep -v -f tags.txt versions.txt; then
   echo "===> No update" >&2
   exit 0
