@@ -9,11 +9,12 @@ if ! grep -v -f tags.txt versions.txt; then
   exit 0
 fi
 
-if git diff versions.txt --exit-code; then
+if git diff --exit-code versions.txt; then
   ghcp empty-commit -r "$GITHUB_REPOSITORY" -m "update"
 else
   ghcp commit -r "$GITHUB_REPOSITORY" -m "update versions.txt" versions.txt
 fi
+git checkout -- versions.txt
 
 # push tags
 git pull
