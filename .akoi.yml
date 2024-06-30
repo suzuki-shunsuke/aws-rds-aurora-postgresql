@@ -6,7 +6,7 @@ link_path: ".akoi/bin/{{.Name}}"
 packages:
   ghcp:
     url: 'https://github.com/int128/ghcp/releases/download/{{.Version}}/ghcp_{{.OS}}_{{.Arch}}.zip'
-    version: v1.13.0 # renovate: depName=int128/ghcp
+    version: v1.13.3 # renovate: depName=int128/ghcp
     files:
     - name: ghcp
       archive: ghcp
