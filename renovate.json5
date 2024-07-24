@@ -1,13 +1,7 @@
 {
-  "extends": ["config:base"],
-  "automerge": true,
-  "regexManagers": [
-    {
-      "fileMatch": [".akoi.yml"],
-      "matchStrings": [
-        "version: (?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"
-      ],
-      "datasourceTemplate": "github-releases"
-    }
+  extends: [
+    "github>suzuki-shunsuke/renovate-config#2.4.0",
+    "github>suzuki-shunsuke/renovate-config:nolimit#2.4.0",
+    "github>aquaproj/aqua-renovate-config#2.3.1",
   ]
 }

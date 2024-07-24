@@ -9,12 +9,10 @@ jobs:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-
-      - run: echo "PATH=$PWD/.akoi/bin:$PATH" >> $GITHUB_ENV
-      - name: Install akoi
-        uses: suzuki-shunsuke/akoi-installer@v0.1.0
-      - run: akoi install
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
+        with:
+          aqua_version: v2.30.0
 
       - run: aws rds describe-db-engine-versions --region us-east-1 --engine aurora-postgresql | jq -r ".DBEngineVersions[].EngineVersion" | uniq > versions.txt
         env:
