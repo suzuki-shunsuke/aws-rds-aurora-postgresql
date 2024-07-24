@@ -13,6 +13,8 @@ jobs:
       - uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
         with:
           aqua_version: v2.30.0
+        env:
+          GITHUB_TOKEN: ${{github.token}}
 
       - run: aws rds describe-db-engine-versions --region us-east-1 --engine aurora-postgresql | jq -r ".DBEngineVersions[].EngineVersion" | uniq > versions.txt
         env:
@@ -21,4 +23,4 @@ jobs:
 
       - uses: suzuki-shunsuke/github-actions-renovate-github-tags-data-source@main
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{github.token}}
